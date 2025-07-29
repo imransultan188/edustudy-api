@@ -23,7 +23,7 @@ jobs:
 
       - name: Deploy via SSH
         run: |
-          ssh -p  ssh -p 65002 u751962952@${{ secrets.HOSTINGER_HOST }} '
+          ssh -p  ssh -p 65002 u751962952@93.127.208.205 '
             cd domains/edustudyconsultants.com/public_html/edustudy-api &&
             git pull origin main &&
             composer install --no-dev &&

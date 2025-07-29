@@ -19,12 +19,12 @@ jobs:
           echo "${{ secrets.EDUSTUDYPRIVATE }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -p 65002 93.127.208.205 >> ~/.ssh/known_hosts
-          
+
       - name: Deploy via SSH
         run: |
           ssh -i ~/.ssh/id_rsa -p 65002 u751962952@93.127.208.205 "
-            cd domains/edustudyconsultants.com/public_html/edustudy-api &&
-            git pull origin main &&
-            curl -sS https://getcomposer.org/installer | php -- --2 &&
-            php composer.phar install --no-dev &&
-            php artisan migrate --force"
+          cd domains/edustudyconsultants.com/public_html/edustudy-api &&
+          git pull origin main &&
+          curl -sS https://getcomposer.org/installer | php -- --2 &&
+          php composer.phar install --no-dev &&
+          php artisan migrate --force"

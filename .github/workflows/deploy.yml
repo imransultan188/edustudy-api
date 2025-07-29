@@ -23,6 +23,6 @@ jobs:
 
       - name: Deploy via SSH
         run: |
-          echp "${{ secrets.EDUSTUDYPRIVATE }}" > /home/runner/.ssh/id_rsa_private
+          echo "${{ secrets.EDUSTUDYPRIVATE }}" > /home/runner/.ssh/id_rsa_private
           ssh -i  /home/runner/.ssh/id_rsa_private -p 65002 u751962952@93.127.208.205
           cd domains/edustudyconsultants.com/public_html/edustudy-api && git pull origin main && php artisan migrate --force

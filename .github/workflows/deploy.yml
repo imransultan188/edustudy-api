@@ -16,8 +16,8 @@ jobs:
       - name: Setup SSH key
         run: |
           
-          echo "${{ secrets.HOSTINGER_SSH_KEY }}" > ~/.ssh/id_rsa
-          echo "${{ secrets.HOSTINGER_SSH_KEY }}" > ~/.ssh/known_hosts
+          echo "${{ secrets.edustudy }}" > ~/.ssh/id_rsa
+          echo "${{ secrets.edustudy }}" > ~/.ssh/known_hosts
           chmod 600 ~/.ssh/id_rsa
        
 

@@ -27,4 +27,5 @@ Route::middleware('auth:api')->group(function () {
     Route::put('/update-level/{id}', [LevelController::class, 'update']);
     Route::delete('/delete-level/{id}', [LevelController::class, 'destroy']);
     Route::post('/logout', [AuthController::class, 'logout']);
+    
 });

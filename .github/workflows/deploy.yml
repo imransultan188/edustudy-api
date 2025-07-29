@@ -15,7 +15,7 @@ jobs:
 
       - name: Setup SSH key
         run: |
-          
+          mkdir -p ~/.ssh
           echo "${{ secrets.edustudy }}" > /home/runner/.ssh/id_rsa
           echo "${{ secrets.edustudy }}" > /home/runner/.ssh/known_hosts
           chmod 600 /home/runner/.ssh/id_rsa

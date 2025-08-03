@@ -16,6 +16,9 @@ Route::get('/universities', [UniversityController::class, 'index']);
 
 Route::get('/levels', [LevelController::class, 'index']);
 
+Route::get('/test', fn() => response()->json(['msg' => 'ok']));
+
+
 Route::middleware('auth:api')->group(function () {
 
     Route::post('/add-university', [UniversityController::class, 'store']);
@@ -27,5 +30,5 @@ Route::middleware('auth:api')->group(function () {
     Route::put('/update-level/{id}', [LevelController::class, 'update']);
     Route::delete('/delete-level/{id}', [LevelController::class, 'destroy']);
     Route::post('/logout', [AuthController::class, 'logout']);
-    
+
 });

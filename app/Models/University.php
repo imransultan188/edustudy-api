@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class University extends Model
 {
     use HasFactory;
+
+    // app/Models/University.phps
+
+protected $fillable = [
+    'name',
+    'country_id',
+    'city',
+    'website',
+    'description',
+    'logo',
+];
+
 }

@@ -20,4 +20,8 @@ protected $fillable = [
     'logo',
 ];
 
+public function country()
+{
+    return $this->belongsTo(Country::class);
+}
 }

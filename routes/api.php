@@ -16,7 +16,6 @@ Route::get('/universities', [UniversityController::class, 'index']);
 
 Route::get('/levels', [LevelController::class, 'index']);
 
-
 Route::get('/test', fn() => response()->json(['msg' => 'ok']));
 
 

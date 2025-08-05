@@ -48,4 +48,23 @@ public function store(Request $request)
     ], 201);
 }
 
+
+
+public function destroy($id)
+{
+    $course = Course::find($id);
+
+    if (!$course) {
+        return response()->json([
+            'message' => 'course not found'
+        ], 404);
+    }
+
+    $course->delete();
+
+    return response()->json([
+        'message' => 'course deleted successfully'
+    ], 200);
+}
+
 }

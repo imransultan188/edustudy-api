@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\CountryController;
+use App\Http\Controllers\API\CourseController;
 use App\Http\Controllers\API\LevelController;
 use App\Http\Controllers\API\UniversityController;
 
@@ -15,6 +16,8 @@ Route::get('/countries', [CountryController::class, 'index']);
 Route::get('/universities', [UniversityController::class, 'index']);
 
 Route::get('/levels', [LevelController::class, 'index']);
+
+Route::get('/courses', [CourseController::class, 'index']);
 
 Route::get('/test', fn() => response()->json(['msg' => 'ok']));
 Route::get('/testing', fn() => response()->json(['msg' => 'ok']));
@@ -31,5 +34,8 @@ Route::middleware('auth:api')->group(function () {
     Route::put('/update-level/{id}', [LevelController::class, 'update']);
     Route::delete('/delete-level/{id}', [LevelController::class, 'destroy']);
     Route::post('/logout', [AuthController::class, 'logout']);
+
+    Route::post('/add-course', [CourseController::class, 'store']);
+
 
 });

@@ -5,7 +5,6 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\Course;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 
 class CourseController extends Controller
 {
@@ -26,7 +25,7 @@ public function store(Request $request)
         'university_id' => 'required|integer',
         'level_id' => 'required|integer',
         'name' => 'required|string|max:255',
-       'slug' => Str::slug($request->name),
+        'slug' => 'required|string|max:255|unique:courses,slug',
         'overview' => 'nullable|string',
         'duration' => 'nullable|string',
         'class_type' => 'nullable|string',

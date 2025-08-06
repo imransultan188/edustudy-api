@@ -53,7 +53,7 @@ Route::delete('/courses/additional-fees/{fee}', [CourseAdditionalFeeController::
 
 // routes/api.php
 Route::post('/courses/program-structures', [CourseProgramStructureController::class, 'store']);
-Route::delete('/courses/program-structures/{id}', [CourseProgramStructureController::class, 'destroy']);
+Route::delete('/courses/program-structure/{id}', [CourseProgramStructureController::class, 'destroy']);
 Route::put('/courses/program-structure/{id}', [CourseProgramStructureController::class, 'update']);
 
 

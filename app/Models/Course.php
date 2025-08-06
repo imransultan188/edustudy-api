@@ -25,6 +25,16 @@ class Course extends Model
         'intakes', // Store as JSON
     ];
 
+
+public function university()
+{
+    return $this->belongsTo(University::class);
+}
+public function level()
+{
+    return $this->belongsTo(Level::class);
+}
+
     public function yearlyFees() {
         return $this->hasMany(CourseYearlyFee::class);
     }

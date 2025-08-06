@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\CountryController;
 use App\Http\Controllers\API\CourseAdditionalFeeController;
+use App\Http\Controllers\API\CourseCareerOpportunityController;
 use App\Http\Controllers\API\CourseController;
 use App\Http\Controllers\API\CourseEntryRequirementController;
 use App\Http\Controllers\API\CourseHighlightController;
@@ -12,6 +13,7 @@ use App\Http\Controllers\API\CourseProgramStructureController;
 use App\Http\Controllers\API\CourseYearlyFeeController;
 use App\Http\Controllers\API\LevelController;
 use App\Http\Controllers\API\UniversityController;
+use App\Models\CourseCareerOpportunity;
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login',    [AuthController::class, 'login']);
@@ -61,5 +63,8 @@ Route::post('/courses/requirements', [CourseEntryRequirementController::class, '
 Route::put('/courses/requirements/{requirement}', [CourseEntryRequirementController::class, 'update']);
 Route::delete('/courses/requirements/{requirement}', [CourseEntryRequirementController::class, 'destroy']);
 
+Route::post('/courses/careers', [CourseCareerOpportunityController::class, 'store']);
+Route::put('/courses/careers/{career}', [CourseCareerOpportunityController::class, 'update']);
+Route::delete('/courses/careers/{career}', [CourseCareerOpportunityController::class, 'destroy']);
 
 });

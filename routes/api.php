@@ -45,26 +45,28 @@ Route::middleware('auth:api')->group(function () {
     Route::post('/add-course', [CourseController::class, 'store']);
     Route::delete('/courses/{id}', [CourseController::class, 'destroy']);
 
-    Route::post('/courses/{course}/highlights', [CourseHighlightController::class, 'store']);
     Route::post('/courses/yearly-fees', [CourseYearlyFeeController::class, 'store']);
     Route::put('/courses/yearly-fees/{fee}', [CourseYearlyFeeController::class, 'update']);
     Route::delete('/courses/yearly-fees/{fee}', [CourseYearlyFeeController::class, 'destroy']);
 
     Route::post('/courses/additional-fees', [CourseAdditionalFeeController::class, 'store']);
-Route::put('/courses/additional-fees/{fee}', [CourseAdditionalFeeController::class, 'update']);
-Route::delete('/courses/additional-fees/{fee}', [CourseAdditionalFeeController::class, 'destroy']);
+    Route::put('/courses/additional-fees/{fee}', [CourseAdditionalFeeController::class, 'update']);
+    Route::delete('/courses/additional-fees/{fee}', [CourseAdditionalFeeController::class, 'destroy']);
 
-// routes/api.php
-Route::post('/courses/program-structures', [CourseProgramStructureController::class, 'store']);
-Route::delete('/courses/program-structure/{id}', [CourseProgramStructureController::class, 'destroy']);
-Route::put('/courses/program-structure/{id}', [CourseProgramStructureController::class, 'update']);
+    // routes/api.php
+    Route::post('/courses/program-structures', [CourseProgramStructureController::class, 'store']);
+    Route::delete('/courses/program-structure/{id}', [CourseProgramStructureController::class, 'destroy']);
+    Route::put('/courses/program-structure/{id}', [CourseProgramStructureController::class, 'update']);
 
-Route::post('/courses/requirements', [CourseEntryRequirementController::class, 'store']);
-Route::put('/courses/requirements/{requirement}', [CourseEntryRequirementController::class, 'update']);
-Route::delete('/courses/requirements/{requirement}', [CourseEntryRequirementController::class, 'destroy']);
+    Route::post('/courses/requirements', [CourseEntryRequirementController::class, 'store']);
+    Route::put('/courses/requirements/{requirement}', [CourseEntryRequirementController::class, 'update']);
+    Route::delete('/courses/requirements/{requirement}', [CourseEntryRequirementController::class, 'destroy']);
 
-Route::post('/courses/careers', [CourseCareerOpportunityController::class, 'store']);
-Route::put('/courses/careers/{career}', [CourseCareerOpportunityController::class, 'update']);
-Route::delete('/courses/careers/{career}', [CourseCareerOpportunityController::class, 'destroy']);
+    Route::post('/courses/careers', [CourseCareerOpportunityController::class, 'store']);
+    Route::put('/courses/careers/{career}', [CourseCareerOpportunityController::class, 'update']);
+    Route::delete('/courses/careers/{career}', [CourseCareerOpportunityController::class, 'destroy']);
 
+    Route::post('/courses/highlights', [CourseHighLightController::class, 'store']);
+    Route::put('/courses/highlights/{highlight}', [CourseHighLightController::class, 'update']);
+    Route::delete('/courses/highlights/{highlight}', [CourseHighLightController::class, 'destroy']);
 });

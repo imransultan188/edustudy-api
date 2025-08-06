@@ -7,6 +7,7 @@ use App\Http\Controllers\API\CountryController;
 use App\Http\Controllers\API\CourseAdditionalFeeController;
 use App\Http\Controllers\API\CourseController;
 use App\Http\Controllers\API\CourseHighlightController;
+use App\Http\Controllers\API\CourseProgramStructureController;
 use App\Http\Controllers\API\CourseYearlyFeeController;
 use App\Http\Controllers\API\LevelController;
 use App\Http\Controllers\API\UniversityController;
@@ -49,5 +50,11 @@ Route::middleware('auth:api')->group(function () {
     Route::post('/courses/additional-fees', [CourseAdditionalFeeController::class, 'store']);
 Route::put('/courses/additional-fees/{fee}', [CourseAdditionalFeeController::class, 'update']);
 Route::delete('/courses/additional-fees/{fee}', [CourseAdditionalFeeController::class, 'destroy']);
+
+// routes/api.php
+Route::post('/courses/program-structures', [CourseProgramStructureController::class, 'store']);
+Route::delete('/courses/program-structures/{id}', [CourseProgramStructureController::class, 'destroy']);
+Route::put('/courses/program-structures/{id}', [CourseProgramStructureController::class, 'update']);
+
 
 });

@@ -25,7 +25,7 @@ public function store(Request $request)
         'university_id' => 'required|integer',
         'level_id' => 'required|integer',
         'name' => 'required|string|max:255',
-        'slug' => 'required|string|max:255|unique:courses,slug',
+        'slug' => 'nullable|string|max:255|unique:courses,slug',
         'overview' => 'nullable|string',
         'duration' => 'nullable|string',
         'class_type' => 'nullable|string',

@@ -56,7 +56,7 @@ public function level()
     }
     
     public function highlights() {
-        return $this->hasMany(CourseHighlight::class);
+        return $this->hasMany(CourseHighLight::class);
     }
     
     

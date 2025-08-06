@@ -43,6 +43,6 @@ Route::middleware('auth:api')->group(function () {
     Route::post('/courses/{course}/highlights', [CourseHighlightController::class, 'store']);
     Route::post('/courses/yearly-fees', [CourseYearlyFeeController::class, 'store']);
 
-
-
+    Route::put('/courses/yearly-fees/{fee}', [CourseYearlyFeeController::class, 'update']);
+    Route::delete('/courses/yearly-fees/{fee}', [CourseYearlyFeeController::class, 'destroy']);
 });

@@ -24,4 +24,24 @@ public function store(Request $request)
         'data' => $fee,
     ], 201);
 }
+
+public function update(Request $request,  CourseYearlyFee $fee)
+{
+    $validated = $request->validate([
+        'year' => 'required|integer|min:1|max:4',
+        'amount' => 'required|integer|min:0',
+    ]);
+
+    $fee->update($validated);
+
+    return response()->json(['success' => true, 'data' => $fee]);
+}
+
+public function destroy( CourseYearlyFee $fee)
+{
+    $fee->delete();
+    return response()->json(['success' => true]);
+}
+
+
 }

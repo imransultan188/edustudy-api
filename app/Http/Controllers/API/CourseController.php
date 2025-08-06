@@ -31,7 +31,7 @@ public function store(Request $request)
         'class_type' => 'nullable|string',
         'total_fees' => 'nullable|numeric',
         'currency' => 'nullable|string|max:10',
-        'english_requirement' => 'nullable|string',
+        'english_requirement' => 'nullable|boolean',
         'offer_letter_free' => 'nullable|boolean',
         'credit_hours' => 'nullable|integer',
         'intakes' => 'nullable|array',

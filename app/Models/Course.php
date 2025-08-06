@@ -24,5 +24,30 @@ class Course extends Model
         'credit_hours',
         'intakes', // Store as JSON
     ];
+
+    public function yearlyFees() {
+        return $this->hasMany(CourseYearlyFee::class);
+    }
+    
+    public function additionalFees() {
+        return $this->hasMany(CourseAdditionalFee::class);
+    }
+    
+    public function programStructure() {
+        return $this->hasMany(CourseProgramStructure::class);
+    }
+    
+    public function entryRequirements() {
+        return $this->hasMany(CourseEntryRequirement::class);
+    }
+    
+    public function careerOpportunities() {
+        return $this->hasMany(CourseCareerOpportunity::class);
+    }
+    
+    public function highlights() {
+        return $this->hasMany(CourseHighlight::class);
+    }
+    
     
 }

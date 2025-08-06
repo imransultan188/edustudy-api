@@ -9,15 +9,25 @@ use Illuminate\Http\Request;
 class CourseController extends Controller
 {
     
-    public function index ()
+    public function index()
     {
-        $courses = Course::all();
-
-    return response()->json([
-        'message' => 'courses fetched successfully',
-        'data' => $courses
-    ], 200);
+        $courses = Course::with([
+            'university',
+            'level',
+            'yearlyFees',
+            'additionalFees',
+            'programStructure',
+            'entryRequirements',
+            'careerOpportunities',
+            'highlights'
+        ])->get();
+    
+        return response()->json([
+            'success' => true,
+            'data' => $courses
+        ]);
     }
+    
 
 public function store(Request $request)
 {

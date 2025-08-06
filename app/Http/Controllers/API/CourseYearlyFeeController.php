@@ -14,7 +14,7 @@ public function store(Request $request)
     $validated = $request->validate([
         'course_id' => 'required|exists:courses,id',
         'year' => 'required|integer|min:1',
-        'amount' => 'required|numeric|min:0',
+        'amount' => 'required|integer|min:0',
     ]);
 
     $fee = CourseYearlyFee::create($validated);

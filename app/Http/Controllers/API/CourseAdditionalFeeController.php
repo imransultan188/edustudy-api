@@ -8,9 +8,7 @@ use Illuminate\Http\Request;
 
 class CourseAdditionalFeeController extends Controller
 {
-   
-class CourseAdditionalFeeController extends Controller
-{
+
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -42,5 +40,5 @@ class CourseAdditionalFeeController extends Controller
 
         return response()->json(['success' => true]);
     }
-}
+
 }

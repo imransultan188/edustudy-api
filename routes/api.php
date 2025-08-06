@@ -6,6 +6,7 @@ use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\CountryController;
 use App\Http\Controllers\API\CourseAdditionalFeeController;
 use App\Http\Controllers\API\CourseController;
+use App\Http\Controllers\API\CourseEntryRequirementController;
 use App\Http\Controllers\API\CourseHighlightController;
 use App\Http\Controllers\API\CourseProgramStructureController;
 use App\Http\Controllers\API\CourseYearlyFeeController;
@@ -55,6 +56,10 @@ Route::delete('/courses/additional-fees/{fee}', [CourseAdditionalFeeController::
 Route::post('/courses/program-structures', [CourseProgramStructureController::class, 'store']);
 Route::delete('/courses/program-structure/{id}', [CourseProgramStructureController::class, 'destroy']);
 Route::put('/courses/program-structure/{id}', [CourseProgramStructureController::class, 'update']);
+
+Route::post('/courses/requirements', [CourseEntryRequirementController::class, 'store']);
+Route::put('/courses/requirements/{requirement}', [CourseEntryRequirementController::class, 'update']);
+Route::delete('/courses/requirements/{requirement}', [CourseEntryRequirementController::class, 'destroy']);
 
 
 });

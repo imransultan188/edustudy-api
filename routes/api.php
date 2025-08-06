@@ -41,7 +41,7 @@ Route::middleware('auth:api')->group(function () {
     Route::delete('/courses/{id}', [CourseController::class, 'destroy']);
 
     Route::post('/courses/{course}/highlights', [CourseHighlightController::class, 'store']);
-    Route::post('/courses/{course}/yearly-fees', [CourseYearlyFeeController::class, 'store']);
+    Route::post('/courses/yearly-fees', [CourseYearlyFeeController::class, 'store']);
 
 
 

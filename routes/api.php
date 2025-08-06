@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\CountryController;
+use App\Http\Controllers\API\CourseAdditionalFeeController;
 use App\Http\Controllers\API\CourseController;
 use App\Http\Controllers\API\CourseHighlightController;
 use App\Http\Controllers\API\CourseYearlyFeeController;
@@ -42,7 +43,11 @@ Route::middleware('auth:api')->group(function () {
 
     Route::post('/courses/{course}/highlights', [CourseHighlightController::class, 'store']);
     Route::post('/courses/yearly-fees', [CourseYearlyFeeController::class, 'store']);
-
     Route::put('/courses/yearly-fees/{fee}', [CourseYearlyFeeController::class, 'update']);
     Route::delete('/courses/yearly-fees/{fee}', [CourseYearlyFeeController::class, 'destroy']);
+
+    Route::post('/courses/additional-fees', [CourseAdditionalFeeController::class, 'store']);
+Route::put('/courses/additional-fees/{fee}', [CourseAdditionalFeeController::class, 'update']);
+Route::delete('/courses/additional-fees/{fee}', [CourseAdditionalFeeController::class, 'destroy']);
+
 });

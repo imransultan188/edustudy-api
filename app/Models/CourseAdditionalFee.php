@@ -14,5 +14,10 @@ class CourseAdditionalFee extends Model
         'type',
         'amount',
     ];
+
+    public function course()
+    {
+        return $this->belongsTo(Course::class);
+    }
     
 }

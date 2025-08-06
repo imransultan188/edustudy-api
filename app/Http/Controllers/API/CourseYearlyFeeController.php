@@ -12,7 +12,7 @@ class CourseYearlyFeeController extends Controller
 public function store(Request $request)
 {
     $validated = $request->validate([
-        'course_id' => 'required|exists:courses,id',
+        'course' => 'required|exists:courses,id',
         'year' => 'required|integer|min:1',
         'amount' => 'required|integer|min:0',
     ]);

@@ -34,6 +34,7 @@ Route::middleware('auth:api')->group(function () {
 
     Route::post('/add-university', [UniversityController::class, 'store']);
     Route::get('/university/{id}', [UniversityController::class, 'show']);
+    Route::delete('/university/{id}', [UniversityController::class, 'destroy']);
     Route::put('/update-university/{id}', [UniversityController::class, 'update']);
     Route::delete('/delete-university/{id}', [UniversityController::class, 'destroy']);
 

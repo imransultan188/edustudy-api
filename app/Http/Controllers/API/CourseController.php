@@ -38,7 +38,7 @@ class CourseController extends Controller
         'entryRequirements',
         'careerOpportunities',
         'highlights'
-    ])->get();
+    ])->first();
 
     return response()->json([
         'success' => true,

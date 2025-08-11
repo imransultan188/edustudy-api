@@ -27,6 +27,24 @@ class CourseController extends Controller
         'data' => $courses
     ]);
 }
+   public function show($id)
+{
+    $course = Course::where('id', $id)->with([
+        'university',
+        'level',
+        'yearlyFees',
+        'additionalFees',
+        'programStructure',
+        'entryRequirements',
+        'careerOpportunities',
+        'highlights'
+    ])->get();
+
+    return response()->json([
+        'success' => true,
+        'data' => $course
+    ]);
+}
 
 
 public function store(Request $request)

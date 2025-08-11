@@ -25,6 +25,7 @@ Route::get('/universities', [UniversityController::class, 'index']);
 Route::get('/levels', [LevelController::class, 'index']);
 
 Route::get('/courses', [CourseController::class, 'index']);
+Route::get('/show-course/{id}', [CourseController::class, 'show']);
 
 Route::get('/test', fn() => response()->json(['msg' => 'ok']));
 Route::get('/testing', fn() => response()->json(['msg' => 'ok']));

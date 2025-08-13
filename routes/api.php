@@ -14,6 +14,8 @@ use App\Http\Controllers\API\CourseYearlyFeeController;
 use App\Http\Controllers\API\LevelController;
 use App\Http\Controllers\API\UniversityController;
 use App\Models\CourseCareerOpportunity;
+use App\Http\Controllers\API\InquiryController;
+
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login',    [AuthController::class, 'login']);
@@ -29,6 +31,10 @@ Route::get('/show-course/{id}', [CourseController::class, 'show']);
 
 Route::get('/test', fn() => response()->json(['msg' => 'ok']));
 Route::get('/testing', fn() => response()->json(['msg' => 'ok']));
+
+
+Route::post('/inquiries', [InquiryController::class, 'store']);
+
 
 
 Route::middleware('auth:api')->group(function () {

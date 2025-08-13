@@ -9,6 +9,16 @@ use App\Models\Inquiry;
 class InquiryController extends Controller
 {
 
+    public function index()
+    {
+        $inquiries = Inquiry::orderBy('created_at', 'desc')->get();
+    
+        return response()->json([
+            'message' => 'Inquiry fetched successfully',
+            'data' => $inquiries
+        ], 200); // use 200 for successful fetch
+    }
+    
     public function store(Request $request)
     {
         $validated = $request->validate([

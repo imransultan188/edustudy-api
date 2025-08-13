@@ -39,6 +39,8 @@ Route::post('/inquiries', [InquiryController::class, 'store']);
 
 Route::middleware('auth:api')->group(function () {
 
+Route::get('/inquiries', [InquiryController::class, 'index']);
+
     Route::post('/add-university', [UniversityController::class, 'store']);
     Route::get('/university/{id}', [UniversityController::class, 'show']);
     Route::delete('/universities/{id}', [UniversityController::class, 'destroy']);

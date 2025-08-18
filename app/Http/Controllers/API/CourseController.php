@@ -26,9 +26,14 @@ class CourseController extends Controller
             $query->where('university_id', $request->university_id);
         }
     
-        // ✅ Filter by level
+        // Filter by level
         if ($request->filled('level_id')) {
             $query->where('level_id', $request->level_id);
+        }
+    
+        // Filter by class_type
+        if ($request->filled('class_type')) {
+            $query->where('class_type', $request->class_type);
         }
     
         // Search by course name
@@ -39,7 +44,6 @@ class CourseController extends Controller
     
         // Pagination (default 12 per page)
         $perPage = $request->get('per_page', 12);
-    
         $courses = $query->paginate($perPage);
     
         return response()->json([
@@ -47,6 +51,7 @@ class CourseController extends Controller
             'data' => $courses
         ]);
     }
+    
     
    public function show($id)
 {

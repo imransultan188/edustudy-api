@@ -9,37 +9,40 @@ use Illuminate\Http\Request;
 class CourseController extends Controller
 {
     public function index(Request $request)
-{
-    $query = Course::with([
-        'university',
-        'level',
-        'yearlyFees',
-        'additionalFees',
-        'programStructure',
-        'entryRequirements',
-        'careerOpportunities',
-        'highlights'
-    ]);
-
-    // Filter by university
-    if ($request->has('university_id') && !empty($request->university_id)) {
-        $query->where('university_id', $request->university_id);
+    {
+        $query = Course::with([
+            'university',
+            'level',
+            'yearlyFees',
+            'additionalFees',
+            'programStructure',
+            'entryRequirements',
+            'careerOpportunities',
+            'highlights'
+        ]);
+    
+        // Filter by university
+        if ($request->filled('university_id')) {
+            $query->where('university_id', $request->university_id);
+        }
+    
+        // Optional: search by course name
+        if ($request->filled('search')) {
+            $search = $request->search;
+            $query->where('name', 'like', "%{$search}%");
+        }
+    
+        // Set page size (default 10, allow ?per_page=20 override)
+        $perPage = $request->get('per_page', 12);
+    
+        $courses = $query->paginate($perPage);
+    
+        return response()->json([
+            'success' => true,
+            'data' => $courses
+        ]);
     }
-
-    // Optional: search by course name
-    if ($request->has('search') && !empty($request->search)) {
-        $search = $request->search;
-        $query->where('name', 'like', "%{$search}%");
-    }
-
-    $courses = $query->get();
-
-    return response()->json([
-        'success' => true,
-        'data' => $courses
-    ]);
-}
-
+    
    public function show($id)
 {
     $course = Course::where('id', $id)->with([

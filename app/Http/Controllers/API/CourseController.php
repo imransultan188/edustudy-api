@@ -26,13 +26,18 @@ class CourseController extends Controller
             $query->where('university_id', $request->university_id);
         }
     
-        // Optional: search by course name
+        // ✅ Filter by level
+        if ($request->filled('level_id')) {
+            $query->where('level_id', $request->level_id);
+        }
+    
+        // Search by course name
         if ($request->filled('search')) {
             $search = $request->search;
             $query->where('name', 'like', "%{$search}%");
         }
     
-        // Set page size (default 10, allow ?per_page=20 override)
+        // Pagination (default 12 per page)
         $perPage = $request->get('per_page', 12);
     
         $courses = $query->paginate($perPage);

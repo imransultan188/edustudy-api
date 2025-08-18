@@ -8,10 +8,9 @@ use Illuminate\Http\Request;
 
 class CourseController extends Controller
 {
-    
-   public function index()
+    public function index(Request $request)
 {
-    $courses = Course::with([
+    $query = Course::with([
         'university',
         'level',
         'yearlyFees',
@@ -20,13 +19,27 @@ class CourseController extends Controller
         'entryRequirements',
         'careerOpportunities',
         'highlights'
-    ])->get();
+    ]);
+
+    // Filter by university
+    if ($request->has('university_id') && !empty($request->university_id)) {
+        $query->where('university_id', $request->university_id);
+    }
+
+    // Optional: search by course name
+    if ($request->has('search') && !empty($request->search)) {
+        $search = $request->search;
+        $query->where('name', 'like', "%{$search}%");
+    }
+
+    $courses = $query->get();
 
     return response()->json([
         'success' => true,
         'data' => $courses
     ]);
 }
+
    public function show($id)
 {
     $course = Course::where('id', $id)->with([

@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 class CourseController extends Controller
 {
 
- 
     public function get()
     {
         $courses = Course::with([
@@ -21,13 +20,16 @@ class CourseController extends Controller
             'entryRequirements',
             'careerOpportunities',
             'highlights'
-        ]);
+        ])
+        ->orderBy('created_at', 'desc') // latest first
+        ->get();
+    
         return response()->json([
             'success' => true,
             'data' => $courses
         ]);
     }
- 
+    
 
     public function index(Request $request)
     {
